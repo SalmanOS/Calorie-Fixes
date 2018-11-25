@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.7.3)
+  - Alamofire (4.8.0)
   - ChameleonFramework (2.1.0):
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
@@ -103,7 +103,7 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Firebase: 6df9a6114bc9f106a98fe83d5438d4d9833c2019
   FirebaseAnalytics: 63202d2665de4e6adcbdce189135255d8b5962ba
@@ -120,6 +120,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: d905b3f6b51aa3b353c57e3c2fca6088c1ea9d95
+PODFILE CHECKSUM: c05609d95c077775e9563961cce7a65784597785
 
 COCOAPODS: 1.5.3

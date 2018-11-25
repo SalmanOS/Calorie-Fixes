@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		31EF62A121AAF56A00EAF4FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF62A021AAF56A00EAF4FB /* AppDelegate.swift */; };
-		31EF62A321AAF56A00EAF4FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF62A221AAF56A00EAF4FB /* ViewController.swift */; };
+		31EF62A321AAF56A00EAF4FB /* welcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF62A221AAF56A00EAF4FB /* welcomeViewController.swift */; };
 		31EF62A621AAF56A00EAF4FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31EF62A421AAF56A00EAF4FB /* Main.storyboard */; };
 		31EF62A821AAF56B00EAF4FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31EF62A721AAF56B00EAF4FB /* Assets.xcassets */; };
 		31EF62AB21AAF56B00EAF4FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31EF62A921AAF56B00EAF4FB /* LaunchScreen.storyboard */; };
+		31EF62B321AB15E000EAF4FB /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF62B221AB15E000EAF4FB /* LogInViewController.swift */; };
+		31EF62B521AB15F800EAF4FB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF62B421AB15F800EAF4FB /* RegisterViewController.swift */; };
+		31EF62B721AB249200EAF4FB /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF62B621AB249200EAF4FB /* InputViewController.swift */; };
 		9C6997E8958010A2DA4E976C /* Pods_Calorie_Fixes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576697532B0CA512CBEF37E7 /* Pods_Calorie_Fixes.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,11 +22,14 @@
 		1000FD6F35935D90FC25E2A9 /* Pods-Calorie Fixes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Fixes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Calorie Fixes/Pods-Calorie Fixes.release.xcconfig"; sourceTree = "<group>"; };
 		31EF629D21AAF56A00EAF4FB /* Calorie Fixes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calorie Fixes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31EF62A021AAF56A00EAF4FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		31EF62A221AAF56A00EAF4FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		31EF62A221AAF56A00EAF4FB /* welcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeViewController.swift; sourceTree = "<group>"; };
 		31EF62A521AAF56A00EAF4FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		31EF62A721AAF56B00EAF4FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31EF62AA21AAF56B00EAF4FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31EF62AC21AAF56B00EAF4FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31EF62B221AB15E000EAF4FB /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		31EF62B421AB15F800EAF4FB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		31EF62B621AB249200EAF4FB /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		576697532B0CA512CBEF37E7 /* Pods_Calorie_Fixes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calorie_Fixes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F0450A0F062DA7175D21E45 /* Pods-Calorie Fixes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Fixes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Calorie Fixes/Pods-Calorie Fixes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,11 +68,14 @@
 			isa = PBXGroup;
 			children = (
 				31EF62A021AAF56A00EAF4FB /* AppDelegate.swift */,
-				31EF62A221AAF56A00EAF4FB /* ViewController.swift */,
+				31EF62A221AAF56A00EAF4FB /* welcomeViewController.swift */,
 				31EF62A421AAF56A00EAF4FB /* Main.storyboard */,
 				31EF62A721AAF56B00EAF4FB /* Assets.xcassets */,
 				31EF62A921AAF56B00EAF4FB /* LaunchScreen.storyboard */,
+				31EF62B221AB15E000EAF4FB /* LogInViewController.swift */,
+				31EF62B421AB15F800EAF4FB /* RegisterViewController.swift */,
 				31EF62AC21AAF56B00EAF4FB /* Info.plist */,
+				31EF62B621AB249200EAF4FB /* InputViewController.swift */,
 			);
 			path = "Calorie Fixes";
 			sourceTree = "<group>";
@@ -222,8 +231,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31EF62A321AAF56A00EAF4FB /* ViewController.swift in Sources */,
+				31EF62A321AAF56A00EAF4FB /* welcomeViewController.swift in Sources */,
+				31EF62B721AB249200EAF4FB /* InputViewController.swift in Sources */,
 				31EF62A121AAF56A00EAF4FB /* AppDelegate.swift in Sources */,
+				31EF62B321AB15E000EAF4FB /* LogInViewController.swift in Sources */,
+				31EF62B521AB15F800EAF4FB /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
