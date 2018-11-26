@@ -9,11 +9,34 @@
 import UIKit
 
 class InputViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var genderPicker: UISegmentedControl!
+    @IBOutlet weak var ageTextField: UITextField!
+    @IBOutlet weak var heightTextField: UITextField!
+    @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var goalPicker: UISegmentedControl!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       // self.navigationItem.setHidesBackButton(true, animated: true)
 
         // Do any additional setup after loading the view.
+        
+        startButton.layer.cornerRadius = 17.0
+        startButton.layer.masksToBounds = true
+    }
+    
+    @IBAction func genderPicked(_ sender: Any) {
+    }
+    @IBAction func goalPicked(_ sender: Any) {
+    }
+    
+    
+    
+    @IBAction func startButtonPressed(_ sender: Any) {
     }
     
 

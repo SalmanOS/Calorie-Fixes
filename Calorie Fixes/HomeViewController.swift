@@ -1,34 +1,25 @@
 //
-//  LogInViewController.swift
+//  HomeViewController.swift
 //  Calorie Fixes
 //
-//  Created by SalmanOS on 25/11/18.
+//  Created by SalmanOS on 26/11/18.
 //  Copyright © 2018 SalmanOS. All rights reserved.
 //
 
 import UIKit
 
-class LogInViewController: UIViewController {
+class HomeViewController: UIViewController {
 
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var calorieGoal: UILabel!
+    @IBOutlet weak var consumedCalories: UILabel!
+    @IBOutlet weak var remainingCalories: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        logInButton.layer.cornerRadius = 17.0
-        logInButton.layer.masksToBounds = true
-        
-        
-        
         // Do any additional setup after loading the view.
     }
     
-    
-    @IBOutlet weak var logInButton: UIButton!
-    @IBAction func logInPressed(_ sender: Any) {
-      
-    }
-    
+
     /*
     // MARK: - Navigation
 
