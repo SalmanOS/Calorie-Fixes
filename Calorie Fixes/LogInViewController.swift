@@ -7,16 +7,22 @@
 //
 
 import UIKit
-
+import Firebase
+import SVProgressHUD
 class LogInViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var wrongTextLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        wrongTextLabel.isHidden = true
 
         logInButton.layer.cornerRadius = 17.0
         logInButton.layer.masksToBounds = true
+        wrongTextLabel.layer.cornerRadius = 17.0
+        wrongTextLabel.layer.masksToBounds = true
+        
         
         
         
@@ -26,6 +32,23 @@ class LogInViewController: UIViewController {
     
     @IBOutlet weak var logInButton: UIButton!
     @IBAction func logInPressed(_ sender: Any) {
+        SVProgressHUD.show()
+        
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) {
+            (user, error) in
+            if error != nil
+            {
+                self.wrongTextLabel.isHidden = false
+                print (error!)
+                SVProgressHUD.dismiss()
+                //self.wrongTextLabel.isHidden = true
+            }
+            else{
+                SVProgressHUD.dismiss()
+                self.performSegue(withIdentifier: "goToMainPage", sender: self)
+            }
+            
+        }
       
     }
     

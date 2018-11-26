@@ -33,10 +33,13 @@ class RegisterViewController: UIViewController {
             {
                 print(error!)
                 SVProgressHUD.dismiss()
+                
             }
             else{
                 print ("/////////////Registration Successful!//////////")
                 SVProgressHUD.dismiss()
+                self.performSegue(withIdentifier: "goToMainPage", sender: self)
+                
             }
         }
     }

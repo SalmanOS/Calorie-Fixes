@@ -107,7 +107,7 @@
                         <outlet property="emailTextField" destination="ql0-Cv-z9M" id="9pR-gx-LUO"/>
                         <outlet property="passwordTextField" destination="WC9-e8-ccG" id="Pqp-jP-MbF"/>
                         <outlet property="registerButton" destination="Kdw-qW-Ids" id="LCp-qn-1fU"/>
-                        <segue destination="aWG-GV-eOM" kind="show" identifier="goToMainPage" id="8HH-oN-K0q"/>
+                        <segue destination="aWG-GV-eOM" kind="show" identifier="goToMainPage" id="RRZ-KQ-pWN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uHE-95-1JS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -184,6 +184,17 @@
                                     <segue destination="hTG-SP-IPn" kind="show" id="iS3-OV-7ip"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ijb-eO-yDk">
+                                <rect key="frame" x="16" y="78" width="82" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.73386900909999997" green="0.37490799339999997" blue="0.32320255939999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="LOG OUT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOutPressed:" destination="aWG-GV-eOM" eventType="touchUpInside" id="toe-fN-0e5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="U6c-WL-slf"/>
@@ -194,6 +205,7 @@
                         <outlet property="genderPicker" destination="Bwa-TP-cf6" id="oln-cr-Gob"/>
                         <outlet property="goalPicker" destination="4O9-tZ-yeb" id="pDg-Ge-XQ8"/>
                         <outlet property="heightTextField" destination="EId-JC-8zw" id="IKI-91-t3j"/>
+                        <outlet property="logoutButton" destination="Ijb-eO-yDk" id="YJe-be-zbc"/>
                         <outlet property="startButton" destination="u6b-6C-8ee" id="HjE-xp-zLS"/>
                         <outlet property="weightTextField" destination="haU-SG-6tw" id="OfO-IU-4zW"/>
                     </connections>
@@ -333,9 +345,16 @@
                                 </state>
                                 <connections>
                                     <action selector="logInPressed:" destination="W8o-Me-akn" eventType="touchUpInside" id="Tlo-vS-shb"/>
-                                    <segue destination="aWG-GV-eOM" kind="show" id="spb-4E-Iw7"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wrong User Name Or password,                                    Type Again Please!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpP-An-XKH">
+                                <rect key="frame" x="47" y="535" width="281" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
+                                <color key="textColor" red="0.73386900909999997" green="0.37490799339999997" blue="0.32320255939999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="y2D-Cv-W6N"/>
@@ -345,11 +364,13 @@
                         <outlet property="emailTextField" destination="XAQ-rA-Msa" id="C1h-Kw-MDE"/>
                         <outlet property="logInButton" destination="eog-Ga-Tie" id="hdg-V0-6Vd"/>
                         <outlet property="passwordTextField" destination="Dc7-BA-rEp" id="uOx-v6-u4W"/>
+                        <outlet property="wrongTextLabel" destination="fpP-An-XKH" id="GWK-bG-mQE"/>
+                        <segue destination="aWG-GV-eOM" kind="show" identifier="goToMainPage" id="gjj-cy-XBS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8j-Kt-3gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1912.8" y="-469.1154422788606"/>
+            <point key="canvasLocation" x="1944.8" y="-501.49925037481262"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="k4F-67-MyN">
@@ -378,6 +399,6 @@
         <image name="Untitled design4" width="250" height="444.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="spb-4E-Iw7"/>
+        <segue reference="gjj-cy-XBS"/>
     </inferredMetricsTieBreakers>
 </document>
