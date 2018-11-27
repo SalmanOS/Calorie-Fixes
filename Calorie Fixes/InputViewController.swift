@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+
 class InputViewController: UIViewController {
     
     let bmiC = BMRCalculator()
@@ -38,6 +39,8 @@ class InputViewController: UIViewController {
         logoutButton.layer.cornerRadius = 17.0
         logoutButton.layer.masksToBounds = true
         //warningTextLabel.isHidden = true
+        
+        
         
     }
     
@@ -69,75 +72,45 @@ class InputViewController: UIViewController {
             
             
         } else {
+            
+            let weight : Double = Double (weightTextField.text!)!
+            let height : Double = Double(heightTextField.text!)!
+            let age : Int = Int(ageTextField.text!)!
+            let gender : String = genderTextField.text!
+            
+            bmiC.BmrFinal = bmiC.getBMR(weight: weight, height: height, age: age, gender: gender)
+            print(bmiC.BmrFinal)
+            
             performSegue(withIdentifier: "goToHomeVC", sender: self)
             print("\\\\\\\\\\\\\\\\\\\\\\\\\\ \(ageTextField.text!)")
             print("\\\\\\\\\\\\\\\\\\\\\\\\\\ \(weightTextField.text!)")
             print("\\\\\\\\\\\\\\\\\\\\\\\\\\ \(heightTextField.text!)")
             
             
-            print (getBMR())
-            bmiC.Bmr = getBMR()
+            let TDEE = Database.database().reference().child("TDEE") //sending messaged into new child database named Messages
+            let messageDictionary = ["Sender" : Auth.auth().currentUser?.email , "TDEE" : String(bmiC.BmrFinal)]  // [sender,message]
+            
+            TDEE.childByAutoId().setValue(messageDictionary){//childautoid - create custom id for messages,this is automatic generated
+                (error,reference) in
+                if error != nil {
+                    print(error!)
+                }
+                else {
+                    print ("Message saved successfully")
+                   
+                }
+                
+            }
+            
+            
+           
         }
         
     }
     
    
     
-    func getBMR()->Int{
-        //Declare local variables
-        
-        let weight : Double = Double (weightTextField.text!)!
-        let height : Double = Double(heightTextField.text!)!
-        let age : Int = Int(ageTextField.text!)!
-        let gender : String = genderTextField.text!
-        
-        var BMR = 0.0
-        var weightCalculation = 0.0
-        var heightCalculation = 0.0
-        var ageCalculaition = 0.0
-        
-        //If Gender is Male, use the following formula: BMR=66.47+ (13.75 x W) + (5.0 x H) - (6.75 x A)
-        if (gender == "male") || (gender == "Male") || (gender == "MALE") {
-            weightCalculation = 10 * weight
-            heightCalculation = 6.25 * height
-            ageCalculaition = 5 * Double(age)
-            
-            BMR = 5 + weightCalculation + heightCalculation - ageCalculaition
-            
-            return Int(BMR * 1.3)
-        }
-            //Else Gender is Female, use the following formula: BMR=665.09 + (9.56 x W) + (1.84 x H) - (4.67 x A)
-        else{
-            weightCalculation = 10 * weight
-            heightCalculation = 6.25 * height
-            ageCalculaition = 5 * Double(age)
-            
-            BMR = weightCalculation + heightCalculation - ageCalculaition - 161
-            
-            return Int(BMR * 1.3)
-        }
-    }
-    
-    //Formula to calculate remaining calories
-    func getRemaining(goal: Int, current: Int)->Int{
-        var remaining = goal - current
-        if remaining < 0 {
-            remaining = 0
-        }
-        return remaining
-    }
-    
-    // Function to convert from pounds to killograms
-    private func toKilograms(weight:Double)->Double{
-        return weight/2.2
-    }
-    
-    // Function to convert from inches into centemiters
-    private func toCentimeters(height:Double)->Double{
-        return height*2.54
-    }
-    
-    
+  
     
 
     
