@@ -126,18 +126,6 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4O9-tZ-yeb">
-                                <rect key="frame" x="91" y="413" width="194" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Gain Weight"/>
-                                    <segment title="Lose Weight"/>
-                                </segments>
-                                <color key="tintColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <connections>
-                                    <action selector="goalPicked:" destination="aWG-GV-eOM" eventType="valueChanged" id="axr-vt-D9d"/>
-                                </connections>
-                            </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fzo-Bh-v9Y">
                                 <rect key="frame" x="91" y="268" width="194" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -145,32 +133,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Height" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EId-JC-8zw">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Height (in cm)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EId-JC-8zw">
                                 <rect key="frame" x="91" y="306" width="194" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Weight" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="haU-SG-6tw">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Weight (in KG)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="haU-SG-6tw">
                                 <rect key="frame" x="91" y="344" width="194" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Bwa-TP-cf6">
-                                <rect key="frame" x="91" y="197" width="194" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Male"/>
-                                    <segment title="Female"/>
-                                </segments>
-                                <color key="tintColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <connections>
-                                    <action selector="genderPicked:" destination="aWG-GV-eOM" eventType="valueChanged" id="4bt-ef-OAG"/>
-                                </connections>
-                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6b-6C-8ee">
                                 <rect key="frame" x="107" y="497" width="167" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -181,7 +157,6 @@
                                 </state>
                                 <connections>
                                     <action selector="startButtonPressed:" destination="aWG-GV-eOM" eventType="touchUpInside" id="UU4-Uj-4dm"/>
-                                    <segue destination="hTG-SP-IPn" kind="show" id="iS3-OV-7ip"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ijb-eO-yDk">
@@ -195,6 +170,13 @@
                                     <action selector="logOutPressed:" destination="aWG-GV-eOM" eventType="touchUpInside" id="toe-fN-0e5"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Male / Female" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MRn-78-mn6">
+                                <rect key="frame" x="91" y="382" width="194" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="U6c-WL-slf"/>
@@ -202,17 +184,17 @@
                     <navigationItem key="navigationItem" id="Qxm-8A-ehX"/>
                     <connections>
                         <outlet property="ageTextField" destination="Fzo-Bh-v9Y" id="eSw-XT-z1A"/>
-                        <outlet property="genderPicker" destination="Bwa-TP-cf6" id="oln-cr-Gob"/>
-                        <outlet property="goalPicker" destination="4O9-tZ-yeb" id="pDg-Ge-XQ8"/>
+                        <outlet property="genderTextField" destination="MRn-78-mn6" id="iUL-eW-xcR"/>
                         <outlet property="heightTextField" destination="EId-JC-8zw" id="IKI-91-t3j"/>
                         <outlet property="logoutButton" destination="Ijb-eO-yDk" id="YJe-be-zbc"/>
                         <outlet property="startButton" destination="u6b-6C-8ee" id="HjE-xp-zLS"/>
                         <outlet property="weightTextField" destination="haU-SG-6tw" id="OfO-IU-4zW"/>
+                        <segue destination="hTG-SP-IPn" kind="show" identifier="goToHomeVC" id="c3q-Wd-etV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cv-Rt-wEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2984.8000000000002" y="-45.42728635682159"/>
+            <point key="canvasLocation" x="2908" y="-57"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="4ze-68-G6l">
@@ -308,7 +290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1b2-Rt-LE0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3826.4000000000001" y="-52.623688155922046"/>
+            <point key="canvasLocation" x="4111" y="-57"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="8lw-tY-Luz">
@@ -347,14 +329,6 @@
                                     <action selector="logInPressed:" destination="W8o-Me-akn" eventType="touchUpInside" id="Tlo-vS-shb"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wrong User Name Or password,                                    Type Again Please!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpP-An-XKH">
-                                <rect key="frame" x="47" y="535" width="281" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
-                                <color key="textColor" red="0.73386900909999997" green="0.37490799339999997" blue="0.32320255939999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="y2D-Cv-W6N"/>
@@ -364,7 +338,6 @@
                         <outlet property="emailTextField" destination="XAQ-rA-Msa" id="C1h-Kw-MDE"/>
                         <outlet property="logInButton" destination="eog-Ga-Tie" id="hdg-V0-6Vd"/>
                         <outlet property="passwordTextField" destination="Dc7-BA-rEp" id="uOx-v6-u4W"/>
-                        <outlet property="wrongTextLabel" destination="fpP-An-XKH" id="GWK-bG-mQE"/>
                         <segue destination="aWG-GV-eOM" kind="show" identifier="goToMainPage" id="gjj-cy-XBS"/>
                     </connections>
                 </viewController>

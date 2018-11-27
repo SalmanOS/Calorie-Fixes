@@ -10,22 +10,22 @@ import UIKit
 import Firebase
 import SVProgressHUD
 class LogInViewController: UIViewController {
+    
+
+    
+    
+    
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var wrongTextLabel: UILabel!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        wrongTextLabel.isHidden = true
+        
 
         logInButton.layer.cornerRadius = 17.0
         logInButton.layer.masksToBounds = true
-        wrongTextLabel.layer.cornerRadius = 17.0
-        wrongTextLabel.layer.masksToBounds = true
-        
-        
-        
-        
+       
         // Do any additional setup after loading the view.
     }
     
@@ -38,7 +38,9 @@ class LogInViewController: UIViewController {
             (user, error) in
             if error != nil
             {
-                self.wrongTextLabel.isHidden = false
+                let alert = UIAlertView(title: "Incorrect Password or Username", message: "Enter correct password/username", delegate: self, cancelButtonTitle: "OK")
+                alert.show()
+               
                 print (error!)
                 SVProgressHUD.dismiss()
                 //self.wrongTextLabel.isHidden = true

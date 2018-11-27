@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3141408F21AD74750016D6B0 /* BMR Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3141408E21AD74750016D6B0 /* BMR Calculator.swift */; };
 		31932FA921ABCF930090568C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31932FA821ABCF930090568C /* HomeViewController.swift */; };
 		31932FAB21ABD8880090568C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31932FAA21ABD8880090568C /* GoogleService-Info.plist */; };
 		31EF62A121AAF56A00EAF4FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF62A021AAF56A00EAF4FB /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		1000FD6F35935D90FC25E2A9 /* Pods-Calorie Fixes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Fixes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Calorie Fixes/Pods-Calorie Fixes.release.xcconfig"; sourceTree = "<group>"; };
+		3141408E21AD74750016D6B0 /* BMR Calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BMR Calculator.swift"; sourceTree = "<group>"; };
 		31932FA821ABCF930090568C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		31932FAA21ABD8880090568C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		31EF629D21AAF56A00EAF4FB /* Calorie Fixes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calorie Fixes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,9 +52,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3141408D21AD74640016D6B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3141408E21AD74750016D6B0 /* BMR Calculator.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		31EF629421AAF56A00EAF4FB = {
 			isa = PBXGroup;
 			children = (
+				3141408D21AD74640016D6B0 /* Model */,
 				31EF629F21AAF56A00EAF4FB /* Calorie Fixes */,
 				31EF629E21AAF56A00EAF4FB /* Products */,
 				41D5DB421E32D27121B751B9 /* Pods */,
@@ -241,6 +252,7 @@
 				31EF62A321AAF56A00EAF4FB /* welcomeViewController.swift in Sources */,
 				31EF62B721AB249200EAF4FB /* InputViewController.swift in Sources */,
 				31EF62A121AAF56A00EAF4FB /* AppDelegate.swift in Sources */,
+				3141408F21AD74750016D6B0 /* BMR Calculator.swift in Sources */,
 				31EF62B321AB15E000EAF4FB /* LogInViewController.swift in Sources */,
 				31EF62B521AB15F800EAF4FB /* RegisterViewController.swift in Sources */,
 				31932FA921ABCF930090568C /* HomeViewController.swift in Sources */,
