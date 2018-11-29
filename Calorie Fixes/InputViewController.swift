@@ -78,28 +78,31 @@ class InputViewController: UIViewController {
             let age : Int = Int(ageTextField.text!)!
             let gender : String = genderTextField.text!
             
-            bmiC.BmrFinal = bmiC.getBMR(weight: weight, height: height, age: age, gender: gender)
+            bmiC.BmrFinal = bmiC.getBMR(weight: weight, height: height, age: age, gender: gender) //sending the data to BMR Calc class
             print(bmiC.BmrFinal)
             
-            performSegue(withIdentifier: "goToHomeVC", sender: self)
+           
             print("\\\\\\\\\\\\\\\\\\\\\\\\\\ \(ageTextField.text!)")
             print("\\\\\\\\\\\\\\\\\\\\\\\\\\ \(weightTextField.text!)")
             print("\\\\\\\\\\\\\\\\\\\\\\\\\\ \(heightTextField.text!)")
             
-            
+            ////// Uploading the data in Data Base
             let TDEE = Database.database().reference().child("TDEE") //sending messaged into new child database named Messages
             let messageDictionary = ["Sender" : Auth.auth().currentUser?.email , "TDEE" : String(bmiC.BmrFinal)]  // [sender,message]
-            
+         
             TDEE.childByAutoId().setValue(messageDictionary){//childautoid - create custom id for messages,this is automatic generated
                 (error,reference) in
                 if error != nil {
                     print(error!)
+                    let alert = UIAlertView(title: "Connection Problem", message: "Try Agin", delegate: self, cancelButtonTitle: "OK")
+                    alert.show()
                 }
                 else {
                     print ("Message saved successfully")
-                   
+                    self.performSegue(withIdentifier: "goToHomeVC", sender: self)
+
                 }
-                
+
             }
             
             
