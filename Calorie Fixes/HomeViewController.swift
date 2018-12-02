@@ -10,8 +10,12 @@ import UIKit
 import Firebase
 
 class HomeViewController: UIViewController {
+    var totalCalFromInputVC = 0
+    var remainingCal = 0
     
     let bmrC = BMRCalculator()
+//    var totalCal :Int = 0
+//    var remainingCal :Int = 0
 
     @IBOutlet weak var calorieGoal: UILabel!
     @IBOutlet weak var consumedCalories: UILabel!
@@ -22,13 +26,12 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        print (bmrC.BmrFinal)
-//        calorieGoal.text = "\(bmrC.BmrFinal)"
-       // consumedCalories.text = String (35)
-        retrieveMessages()
 
-        // Do any additional setup after loading the view.
+        retrieveMessages()
+        calorieGoal.text = String (totalCalFromInputVC) //updated calorie goal from prepare segue
+        remainingCalories.text = String ( totalCalFromInputVC - 100)
     }
+    
     
     func retrieveMessages () {
         let TDEE = Database.database().reference().child("TDEE") //retrive messages
@@ -36,24 +39,21 @@ class HomeViewController: UIViewController {
         TDEE.observe(.childAdded, with: { (snapshot) in //this closer will get called when new child added ie new message saved in DB,and it returns snapshot
             let snapshotValue = snapshot.value as! Dictionary<String,String> // treat this data as dictionary
             
-            let text = snapshotValue["TDEE"]!
+            let text = snapshotValue["TDEE"]! //TDEE From the FIREBASE
             let sender = snapshotValue ["Sender"]!
             
-            self.calorieGoal.text = text
             self.userName.text = "Welcome , "+sender
-            self.consumedCalories.text = "0"
-            self.remainingCalories.text = snapshotValue["TDEE"]
             
- //           let message = Message()  //message object created
-//            message.messageBody = text
-//            message.sender = sender
-//
-//            self.messageArray.append(message) //saving the messages in messageArray, so we can pull them out
-//            self.configureTable()
-//            self.messageTableView.reloadData() //reload
+
+            
+ 
             
         })
     }
+//    func getCal (totalCal : Int , remainingCal : Int){
+//        print(totalCal)
+//        print(remainingCal)
+//    }
     
 
    

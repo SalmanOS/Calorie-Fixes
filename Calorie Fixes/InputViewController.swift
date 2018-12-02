@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 
 class InputViewController: UIViewController {
@@ -24,6 +25,7 @@ class InputViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var logoutButton: UIButton!
+    //@IBOutlet weak var nextPage: UIButton!
     //@IBOutlet weak var warningTextLabel: UILabel!
     
     
@@ -38,6 +40,8 @@ class InputViewController: UIViewController {
         startButton.layer.masksToBounds = true
         logoutButton.layer.cornerRadius = 17.0
         logoutButton.layer.masksToBounds = true
+//        nextPage.layer.cornerRadius = 17.0
+//        nextPage.layer.masksToBounds = true
         //warningTextLabel.isHidden = true
         
         
@@ -65,6 +69,7 @@ class InputViewController: UIViewController {
     
     
     @IBAction func startButtonPressed(_ sender: Any) {
+        SVProgressHUD.show()
         if ageTextField.text?.isEmpty ?? true || heightTextField.text?.isEmpty ?? true || weightTextField.text?.isEmpty ?? true {
             //warningTextLabel.isHidden = false
             let alert = UIAlertView(title: "Data Required", message: "Enter all required infomration", delegate: self, cancelButtonTitle: "OK")
@@ -99,7 +104,8 @@ class InputViewController: UIViewController {
                 }
                 else {
                     print ("Message saved successfully")
-                    self.performSegue(withIdentifier: "goToHomeVC", sender: self)
+                   self.performSegue(withIdentifier: "goToHomeVC", sender: self)
+                    SVProgressHUD.dismiss()
 
                 }
 
@@ -111,8 +117,17 @@ class InputViewController: UIViewController {
         
     }
     
-   
     
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToHomeVC"{
+            
+            let destinationVC = segue.destination as! HomeViewController
+           // destinationVC.delegate = self
+            destinationVC.totalCalFromInputVC = bmiC.BmrFinal
+        }
+        
+    }
   
     
 
