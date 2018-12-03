@@ -334,7 +334,7 @@
             </objects>
             <point key="canvasLocation" x="3960.8000000000002" y="-45.42728635682159"/>
         </scene>
-        <!--Search Food View Controller-->
+        <!--Search Food-->
         <scene sceneID="vEy-Qv-w9R">
             <objects>
                 <viewController id="Yme-WJ-rDK" customClass="SearchFoodViewController" customModule="Calorie_Fixes" customModuleProvider="target" sceneMemberID="viewController">
@@ -353,7 +353,7 @@
                             </scopeButtonTitles>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="CustomCell" editingAccessoryType="detailDisclosureButton" id="R2a-bg-6bF" customClass="FoodTableViewCell" customModule="Lose_Weight_with_Math" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="CustomCell1" editingAccessoryType="detailDisclosureButton" id="R2a-bg-6bF" customClass="FoodTableViewCell" customModule="Calorie_Fixes" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="84" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R2a-bg-6bF" id="75R-Fu-vgB">
@@ -406,7 +406,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" id="scs-cS-VDD"/>
+                    <navigationItem key="navigationItem" title="Search Food" id="TaM-Ag-hC7"/>
                     <connections>
                         <outlet property="searchBar" destination="ImR-Vc-0Vs" id="CEi-KR-MOe"/>
                         <outlet property="tableView" destination="JLN-Cg-Ay1" id="kvx-tj-mmb"/>
@@ -775,7 +775,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LM9-bS-Wko">
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="addAction:" destination="WCY-4h-Qn6" id="rK7-Gb-JZ2"/>
+                                <action selector="addAction:" destination="WCY-4h-Qn6" id="J5q-da-ThJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -801,7 +801,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QqS-ne-nVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6836" y="-45"/>
+            <point key="canvasLocation" x="6713" y="-45"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="OyC-XR-PLG">
+            <objects>
+                <viewController id="n9q-KW-3u7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VO3-vq-oy7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Y2M-DI-j1M"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lCF-kD-1Y0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7659" y="-45"/>
         </scene>
     </scenes>
     <resources>

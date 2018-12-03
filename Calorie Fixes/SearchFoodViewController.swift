@@ -8,6 +8,8 @@
 
 import UIKit
 import Foundation
+
+
 class FoodTableViewCell: UITableViewCell {
     @IBOutlet weak var emojiOutlet: UILabel!
     @IBOutlet weak var titleOutlet: UILabel!
@@ -55,63 +57,7 @@ class SearchFoodViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     
-   //*******************************
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //Placeholder
-        if nameArray.count > 0 && descriptionArray.count > 0 && ndbnoArray.count > 0{
-            return nameArray.count
-        }
-        else{
-            return 0
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
-        
-        //Placeholder
-        if nameArray.count > 0 && ndbnoArray.count > 0{
-            
-            
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! FoodTableViewCell
-            
-            
-            //print(nameArray.count)
-            //print(descriptionArray.count)
-            if (nameArray.count == descriptionArray.count){
-                
-                let name = nameArray[indexPath.row]
-                
-                cell.titleOutlet.text = name
-                
-                let description = descriptionArray[indexPath.row]
-                //print(name)
-                //rint(description)
-                
-                cell.descriptionOutlet.text = description
-                
-                let emoji = getEmoji(title: name)
 
-                cell.emojiOutlet.text = emoji
-                
-                DispatchQueue.main.async {
-                    self.activityIndicatorView.stopAnimating()
-                }
-                
-            }
-            return cell
-        }
-        else{
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath)
-            return cell
-            
-        }
-    }
-    
-    //******************************
     
  
     override func viewDidLoad() {
@@ -122,6 +68,8 @@ class SearchFoodViewController: UIViewController, UITableViewDelegate, UITableVi
         let activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
         tableView.backgroundView = activityIndicatorView
         activityIndicatorView.backgroundColor = UIColor.lightGray
+        tableView.delegate=self
+        tableView.dataSource=self
         self.activityIndicatorView = activityIndicatorView
         searchBar.delegate = self
 
@@ -287,74 +235,6 @@ class SearchFoodViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
     }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("searchText \(searchText)")
-        if timer.isValid{
-            
-        }
-        else{
-            scheduledTimerWithTimeInterval()
-        }
-        
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("searchText \(String(describing: searchBar.text))")
-        
-        if searchBar.text! == "" {
-            self.nameArray.removeAll()
-            self.ndbnoArray.removeAll()
-            self.descriptionArray.removeAll()
-            foodDone = false
-            caloriesDone = false
-            self.tableView.reloadData()
-        } else {
-            // Filter the results
-            self.nameArray.removeAll()
-            self.ndbnoArray.removeAll()
-            self.descriptionArray.removeAll()
-            foodDone = false
-            caloriesDone = false
-            self.tableView.reloadData()
-            getResults()
-            
-            view.endEditing(true)
-        }
-    }
-    
-    var foodToPass:String!
-    var ndbnoToPass:String!
-    var emojiToPass:String!
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        // Get Cell Label
-        let currentCell = tableView.cellForRow(at: indexPath) as UITableViewCell! as! FoodTableViewCell
-        
-        //Get Weight and Date from label to pass into details screen
-        foodToPass = currentCell.titleOutlet.text
-        ndbnoToPass = ndbnoArray[indexPath.row]
-        emojiToPass = currentCell.emojiOutlet.text
-        
-        self.performSegue(withIdentifier: "FoodDetails", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if (segue.identifier == "FoodDetails") {
-            
-            // initialize new view controller and cast it as your view controller
-           // let viewController = segue.destination as! FoodDetailsViewControllerUIPickerViewDelegate, UIPickerViewDataSource
-            // your new view controller should have property that will store passed value
-//            viewController.food = foodToPass
-//            viewController.ndbno = ndbnoToPass
-//            viewController.emoji = emojiToPass
-        }
-    }
-    
-    
     
     func getEmoji(title: String) -> String{
         
@@ -638,6 +518,134 @@ class SearchFoodViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
     }
+    
+    
+    //*******************************
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //Placeholder
+        if nameArray.count > 0 && descriptionArray.count > 0 && ndbnoArray.count > 0{
+            return nameArray.count
+        }
+        else{
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        
+        //Placeholder
+        if nameArray.count > 0 && ndbnoArray.count > 0{
+            
+            
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell1", for: indexPath) as! FoodTableViewCell
+            
+            //HAVE TO OPEN A CUSTOM CELL FOR IT. CHECK FLASH CHAT APP. CHECK NEXT MORNING
+            
+            if (nameArray.count == descriptionArray.count){
+                
+                let name = nameArray[indexPath.row]
+                
+                cell.titleOutlet.text = name
+                
+                let description = descriptionArray[indexPath.row]
+
+                
+                cell.descriptionOutlet.text = description
+                
+                let emoji = getEmoji(title: name)
+                
+                cell.emojiOutlet.text = emoji
+                
+                DispatchQueue.main.async {
+                    self.activityIndicatorView.stopAnimating()
+                }
+                
+            }
+            return cell
+        }
+        else{
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell1", for: indexPath)
+            return cell
+            
+        }
+    }
+    
+    //******************************
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("searchText \(searchText)")
+        if timer.isValid{
+            
+        }
+        else{
+            scheduledTimerWithTimeInterval()
+        }
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("searchText \(String(describing: searchBar.text))")
+        
+        if searchBar.text! == "" {
+            self.nameArray.removeAll()
+            self.ndbnoArray.removeAll()
+            self.descriptionArray.removeAll()
+            foodDone = false
+            caloriesDone = false
+            self.tableView.reloadData()
+        } else {
+            // Filter the results
+            self.nameArray.removeAll()
+            self.ndbnoArray.removeAll()
+            self.descriptionArray.removeAll()
+            foodDone = false
+            caloriesDone = false
+            self.tableView.reloadData()
+            getResults()
+            
+            view.endEditing(true)
+        }
+    }
+    
+    var foodToPass:String!
+    var ndbnoToPass:String!
+    var emojiToPass:String!
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Get Cell Label
+        let currentCell = tableView.cellForRow(at: indexPath) as! FoodTableViewCell
+        
+        //Get Weight and Date from label to pass into details screen
+        foodToPass = currentCell.titleOutlet.text
+        ndbnoToPass = ndbnoArray[indexPath.row]
+        emojiToPass = currentCell.emojiOutlet.text
+        
+        self.performSegue(withIdentifier: "FoodDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "FoodDetails") { //passing the value to FoodDetailsViewController
+            
+            // initialize new view controller and cast it as your view controller
+            let viewController = segue.destination as! FoodDetailsViewController
+            // your new view controller should have property that will store passed value
+            viewController.food = foodToPass
+            viewController.ndbno = ndbnoToPass
+            viewController.emoji = emojiToPass
+        }
+    }
+    
+    
+    
+  
     
     
     
