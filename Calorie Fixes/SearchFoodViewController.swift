@@ -627,12 +627,12 @@ class SearchFoodViewController: UIViewController, UITableViewDelegate, UITableVi
         ndbnoToPass = ndbnoArray[indexPath.row]
         emojiToPass = currentCell.emojiOutlet.text
         
-        self.performSegue(withIdentifier: "FoodDetails", sender: self)
+        self.performSegue(withIdentifier: "FoodDetails1", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if (segue.identifier == "FoodDetails") { //passing the value to FoodDetailsViewController
+        if segue.identifier == "FoodDetails1"{ //passing the value to FoodDetailsViewController
             
             // initialize new view controller and cast it as your view controller
             let viewController = segue.destination as! FoodDetailsViewController

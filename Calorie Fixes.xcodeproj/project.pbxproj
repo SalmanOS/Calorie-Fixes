@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31394ADA21BEC8A300AECD8F /* ConfirmFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31394AD921BEC8A300AECD8F /* ConfirmFoodViewController.swift */; };
 		3141408F21AD74750016D6B0 /* BMR Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3141408E21AD74750016D6B0 /* BMR Calculator.swift */; };
 		31932FA921ABCF930090568C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31932FA821ABCF930090568C /* HomeViewController.swift */; };
 		31932FAB21ABD8880090568C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31932FAA21ABD8880090568C /* GoogleService-Info.plist */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		1000FD6F35935D90FC25E2A9 /* Pods-Calorie Fixes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Fixes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Calorie Fixes/Pods-Calorie Fixes.release.xcconfig"; sourceTree = "<group>"; };
+		31394AD921BEC8A300AECD8F /* ConfirmFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmFoodViewController.swift; sourceTree = "<group>"; };
 		3141408E21AD74750016D6B0 /* BMR Calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BMR Calculator.swift"; sourceTree = "<group>"; };
 		31932FA821ABCF930090568C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		31932FAA21ABD8880090568C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				31932FA821ABCF930090568C /* HomeViewController.swift */,
 				31983A2221B4545200D3B178 /* SearchFoodViewController.swift */,
 				31983A2421B4637D00D3B178 /* FoodDetailsViewController.swift */,
+				31394AD921BEC8A300AECD8F /* ConfirmFoodViewController.swift */,
 				31EF62A721AAF56B00EAF4FB /* Assets.xcassets */,
 				31EF62AC21AAF56B00EAF4FB /* Info.plist */,
 				31932FAA21ABD8880090568C /* GoogleService-Info.plist */,
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31EF62A321AAF56A00EAF4FB /* welcomeViewController.swift in Sources */,
+				31394ADA21BEC8A300AECD8F /* ConfirmFoodViewController.swift in Sources */,
 				31EF62B721AB249200EAF4FB /* InputViewController.swift in Sources */,
 				31EF62A121AAF56A00EAF4FB /* AppDelegate.swift in Sources */,
 				3141408F21AD74750016D6B0 /* BMR Calculator.swift in Sources */,

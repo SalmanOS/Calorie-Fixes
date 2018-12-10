@@ -23,8 +23,12 @@ class HomeViewController: UIViewController {
    
     @IBOutlet weak var userName: UILabel!
     
+    @IBOutlet weak var addFoods: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        addFoods.layer.cornerRadius = 17.0
+        addFoods.layer.masksToBounds = true
         
 
         retrieveMessages()

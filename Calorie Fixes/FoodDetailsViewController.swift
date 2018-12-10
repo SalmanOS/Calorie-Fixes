@@ -10,6 +10,14 @@ import UIKit
 import Foundation
 
 class FoodDetailsViewController: UIViewController , UIPickerViewDelegate , UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        <#code#>
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        <#code#>
+    }
+    
  
     
     
@@ -70,21 +78,43 @@ class FoodDetailsViewController: UIViewController , UIPickerViewDelegate , UIPic
     @IBOutlet weak var fiberOutlet: UILabel!
     @IBOutlet weak var servingSizeOutlet: UILabel!
    
+    @IBOutlet weak var customFatOutlet: UILabel!
+    @IBOutlet weak var customCholesterolOutlet: UILabel!
+    @IBOutlet weak var customSodiumOutlet: UILabel!
+    @IBOutlet weak var customCarbsOutlet: UILabel!
+    @IBOutlet weak var customProteinOutlet: UILabel!
+    @IBOutlet weak var customSugarOutlet: UILabel!
+    @IBOutlet weak var customPotassiumOutlet: UILabel!
+    @IBOutlet weak var customFiberOutlet: UILabel!
+    
+    
+    
+    
+    
+    
     @IBAction func addAction(_ sender: Any) {
         
-//        let when = DispatchTime.now() + 0.1 // change 2 to desired number of seconds
-//        DispatchQueue.main.asyncAfter(deadline: when) {
-//
-//            self.emojiToPass = self.emojiOutlet.text
-//            self.foodToPass = self.foodOutlet.text
-//            self.servingsToPass = String(self.servingMultiplier)
-//            self.servingSizeToPass = self.servingSizeRaw
-//            self.baseCaloriesToPass = self.baseCalories
-//            self.caloriesToPass = self.calorieOutlet.text
-//
-//            self.ndbnoToPass = self.ndbno
-//
-//            self.performSegue(withIdentifier: "toAddFood", sender: self)
+        print("Add Food")
+        
+        
+
+        let when = DispatchTime.now() + 0.1 // change 2 to desired number of seconds
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            
+            self.emojiToPass = self.emojiOutlet.text
+            self.foodToPass = self.foodOutlet.text
+            self.servingsToPass = String(self.servingMultiplier)
+            self.servingSizeToPass = self.servingSizeRaw
+            self.baseCaloriesToPass = self.baseCalories
+            self.caloriesToPass = self.calorieOutlet.text
+            
+            self.ndbnoToPass = self.ndbno
+            
+            self.performSegue(withIdentifier: "toAddFood", sender: self)
+            
+        }
+        
+        
 //
         
     }
@@ -111,6 +141,8 @@ class FoodDetailsViewController: UIViewController , UIPickerViewDelegate , UIPic
         self.servingSizeOutlet.text = self.servingLabel
     }
     
+ 
+
     
     
 
@@ -134,7 +166,57 @@ class FoodDetailsViewController: UIViewController , UIPickerViewDelegate , UIPic
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+        getNutrients(ndbno: ndbno)
+        
+        let navigationTitle : String! = "Add Food"
+        self.title = navigationTitle
+        
+        self.foodOutlet.text = food
+        self.emojiOutlet.text = emoji
+    
     }
+    func getNutrients(ndbno: String){
+        
+        print(ndbno)
+        
+        
+        
+        if ndbno == "Custom" {
+            
+            emojiOutlet.text = emoji
+            foodOutlet.text = food
+            
+            print(caloriesPassed)
+            
+            let calculatedDouble: Double =  Double(caloriesPassed)!
+            
+            self.baseCalories = caloriesPassed
+            
+            let calculated = calculatedDouble * Double(self.servingMultiplier)
+            
+            let calculatedInt = Int(calculated)
+            
+            let subtitleString = "\(calculatedInt)"
+            
+            self.calories = subtitleString
+            
+            
+            //Make unused labels blank
+            customFatOutlet.text = ""
+            customCholesterolOutlet.text = ""
+            customSodiumOutlet.text = ""
+            customCarbsOutlet.text = ""
+            customProteinOutlet.text = ""
+            customSugarOutlet.text = ""
+            customPotassiumOutlet.text = ""
+            customFiberOutlet.text = ""
+            
+            
+        }
+        
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
@@ -188,16 +270,16 @@ class FoodDetailsViewController: UIViewController , UIPickerViewDelegate , UIPic
         if (segue.identifier == "toAddFood") {
             
             // initialize new view controller and cast it as your view controller
-            //let viewController = segue.destination as! ConfirmFoodVC
-            // your new view controller should have property that will store passed value
-//            viewController.emoji = emojiToPass
-//            viewController.food = foodToPass
-//            viewController.servings = servingsToPass
-//            viewController.servingSizeRaw = servingSizeToPass
-//            viewController.baseCalories = baseCaloriesToPass
-//            viewController.calories = caloriesToPass
-//            viewController.ndbno = ndbnoToPass
-//        }
+            let viewController = segue.destination as! ConfirmFoodViewController
+             //your new view controller should have property that will store passed value
+            viewController.emoji = emojiToPass
+            viewController.food = foodToPass
+            viewController.servings = servingsToPass
+            viewController.servingSizeRaw = servingSizeToPass
+            viewController.baseCalories = baseCaloriesToPass
+            viewController.calories = caloriesToPass
+            viewController.ndbno = ndbnoToPass
+        }
     }
 
 }

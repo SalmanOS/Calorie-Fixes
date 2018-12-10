@@ -31,6 +31,8 @@ class RegisterViewController: UIViewController {
             user, error) in
             if error != nil
             {
+                let alert = UIAlertView(title: "Incorrect Email Address", message: "Enter correct Emailadress/password", delegate: self, cancelButtonTitle: "OK")
+                alert.show()
                 print(error!)
                 SVProgressHUD.dismiss()
                 
