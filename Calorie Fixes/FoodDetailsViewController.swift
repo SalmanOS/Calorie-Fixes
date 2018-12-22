@@ -10,18 +10,7 @@ import UIKit
 import Foundation
 
 class FoodDetailsViewController: UIViewController , UIPickerViewDelegate , UIPickerViewDataSource{
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        <#code#>
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        <#code#>
-    }
-    
- 
-    
-    
-    
+
     
     
     var food: String!
@@ -232,6 +221,272 @@ class FoodDetailsViewController: UIViewController , UIPickerViewDelegate , UIPic
                     guard let data = data else {
                         return
                     }
+                    let dataAsString = String(data: data, encoding: .utf8)
+                    
+                    do {
+                        
+                        
+                        
+                        let data = dataAsString?.data(using: .utf8)!
+                        if let json = try? JSONSerialization.jsonObject(with: data!) as? [String:Any] {
+                            
+                            
+                            
+                            if let report = json!["report"] as? [String:Any]{
+                                
+                                if let foods = report["foods"] as? NSArray{
+                                    //print(foods[0])
+                                    if let nutrients = foods[0] as? [String:Any]{
+                                        let measureSize: String = (nutrients["measure"]) as! String
+                                        
+                                        self.servingSizeRaw = measureSize
+                                        //let servingSize = measureSize.components(separatedBy: " ")
+                                        
+                                        self.servingLabel = "Serving Size: \(measureSize)"
+                                        
+                                        if let nextNutrients = nutrients["nutrients"] as? NSArray {
+                                            
+                                            
+                                            //Protein
+                                            if let info = nextNutrients[0] as? [String:Any] {
+                                                let value: String = info["value"] as! String
+                                                
+                                                if value == "--"{
+                                                    self.protein = value
+                                                    
+                                                    print(self.protein)
+                                                }
+                                                else{
+                                                    
+                                                    let calculatedDouble: Double =  Double(value)!
+                                                    
+                                                    let calculated = calculatedDouble * Double(self.servingMultiplier)
+                                                    
+                                                    let subtitleString = "\(calculated)g"
+                                                    
+                                                    self.protein = subtitleString
+                                                    
+                                                    print(self.protein)
+                                                }
+                                            }
+                                            //Sugar
+                                            if let info = nextNutrients[1] as? [String:Any] {
+                                                let value: String = info["value"] as! String
+                                                
+                                                if value == "--"{
+                                                    self.sugar = value
+                                                    
+                                                    print(self.sugar)
+                                                }
+                                                else{
+                                                    
+                                                    let calculatedDouble: Double =  Double(value)!
+                                                    
+                                                    let calculated = calculatedDouble * Double(self.servingMultiplier)
+                                                    
+                                                    let subtitleString = "\(calculated)g"
+                                                    
+                                                    self.sugar = subtitleString
+                                                    
+                                                    print(self.sugar)
+                                                }
+                                            }
+                                            //Fat
+                                            if let info = nextNutrients[2] as? [String:Any] {
+                                                let value: String = info["value"] as! String
+                                                
+                                                if value == "--"{
+                                                    self.fat = value
+                                                    
+                                                    print(self.fat)
+                                                }
+                                                else{
+                                                    
+                                                    let calculatedDouble: Double =  Double(value)!
+                                                    
+                                                    let calculated = calculatedDouble * Double(self.servingMultiplier)
+                                                    
+                                                    let subtitleString = "\(calculated)g"
+                                                    
+                                                    self.fat = subtitleString
+                                                    
+                                                    print(self.fat)
+                                                }
+                                            }
+                                            //Carbs
+                                            if let info = nextNutrients[3] as? [String:Any] {
+                                                let value: String = info["value"] as! String
+                                                
+                                                if value == "--"{
+                                                    self.carbs = value
+                                                    
+                                                    print(self.carbs)
+                                                }
+                                                else{
+                                                    
+                                                    let calculatedDouble: Double =  Double(value)!
+                                                    
+                                                    let calculated = calculatedDouble * Double(self.servingMultiplier)
+                                                    
+                                                    let subtitleString = "\(calculated)g"
+                                                    
+                                                    self.carbs = subtitleString
+                                                    
+                                                    print(self.carbs)
+                                                }
+                                            }
+                                            //Cholesterol
+                                            if let info = nextNutrients[4] as? [String:Any] {
+                                                let value: String = info["value"] as! String
+                                                
+                                                if value == "--"{
+                                                    self.cholestrol = value
+                                                    
+                                                    print(self.cholestrol)
+                                                }
+                                                else{
+                                                    
+                                                    let calculatedDouble: Double =  Double(value)!
+                                                    
+                                                    let calculated = calculatedDouble * Double(self.servingMultiplier)
+                                                    
+                                                    let subtitleString = "\(calculated)mg"
+                                                    
+                                                    self.cholestrol = subtitleString
+                                                    
+                                                    print(self.cholestrol)
+                                                }
+                                            }
+                                            //Potassium
+                                            if let info = nextNutrients[5] as? [String:Any] {
+                                                let value: String = info["value"] as! String
+                                                
+                                                if value == "--"{
+                                                    self.potassium = value
+                                                    
+                                                    print(self.potassium)
+                                                }
+                                                else{
+                                                    let calculatedDouble: Double =  Double(value)!
+                                                    
+                                                    let calculated = calculatedDouble * Double(self.servingMultiplier)
+                                                    
+                                                    let subtitleString = "\(calculated)mg"
+                                                    
+                                                    self.potassium = subtitleString
+                                                    
+                                                    print(self.potassium)
+                                                }
+                                                
+                                                
+                                            }
+                                            //Calories
+                                            if let info = nextNutrients[6] as? [String:Any] {
+                                                let value: String = info["value"] as! String
+                                                
+                                                if value == "--"{
+                                                    self.calories = value
+                                                    
+                                                    print(self.calories)
+                                                }
+                                                else{
+                                                    
+                                                    let calculatedDouble: Double =  Double(value)!
+                                                    
+                                                    self.baseCalories = value
+                                                    
+                                                    let calculated = calculatedDouble * Double(self.servingMultiplier)
+                                                    
+                                                    let calculatedInt = Int(calculated)
+                                                    
+                                                    let subtitleString = "\(calculatedInt)"
+                                                    
+                                                    self.calories = subtitleString
+                                                    
+                                                    print(self.calories)
+                                                }
+                                            }
+                                            //Fiber
+                                            if let info = nextNutrients[7] as? [String:Any] {
+                                                let value: String = info["value"] as! String
+                                                
+                                                if value == "--"{
+                                                    self.fiber = value
+                                                    
+                                                    print(self.fiber)
+                                                }
+                                                else{
+                                                    
+                                                    let calculatedDouble: Double =  Double(value)!
+                                                    
+                                                    let calculated = calculatedDouble * Double(self.servingMultiplier)
+                                                    
+                                                    let subtitleString = "\(calculated)g"
+                                                    
+                                                    self.fiber = subtitleString
+                                                    
+                                                    print(self.fiber)
+                                                }
+                                            }
+                                            //Sodium
+                                            if let info = nextNutrients[8] as? [String:Any] {
+                                                let value: String = info["value"] as! String
+                                                
+                                                if value == "--"{
+                                                    self.sodium = value
+                                                    
+                                                    print(self.sodium)
+                                                }
+                                                else{
+                                                    
+                                                    let calculatedDouble: Double =  Double(value)!
+                                                    
+                                                    let calculated = calculatedDouble * Double(self.servingMultiplier)
+                                                    
+                                                    let subtitleString = "\(calculated)mg"
+                                                    
+                                                    self.sodium = subtitleString
+                                                    
+                                                    print(self.sodium)
+                                                }
+                                            }
+                                        }
+                                        
+                                    }
+                                    
+                                    
+                                }
+                            }
+                        }
+                        
+                        //print(self.descriptionArray.count)
+                        //print(self.nameArray.count)
+                        
+                        
+                    } catch let jsonErr {
+                        print("Error serializing json:", jsonErr)
+                    }
+                    
+                    }.resume()
+                
+                
+                
+                
+                
+                
+                
+            }
+            
+            //-----------------------------------------------------------------------------
+            //-----------------------------------------------------------------------------
+            
+            
+            
+        }
+        
+        
+        
+    
         }
         
     
@@ -300,4 +555,4 @@ class FoodDetailsViewController: UIViewController , UIPickerViewDelegate , UIPic
     }
 
 }
-}
+
