@@ -216,6 +216,23 @@ class FoodDetailsViewController: UIViewController , UIPickerViewDelegate , UIPic
             
             
         }
+        else {
+            
+            DispatchQueue.main.async {
+                let apiKey: String = "C4eNyMBMhGhR2ju0J6pTEMfnusDLQR5uCmKXY7B9"
+                let jsonUrlString = "https://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=\(apiKey)&nutrients=208&nutrients=203&nutrients=204&nutrients=205&nutrients=291&nutrients=269&nutrients=307&nutrients=601&nutrients=306&ndbno=\(ndbno)"
+                let url = URL(string: jsonUrlString)
+                
+                print("Getting calories")
+                
+                
+                
+                URLSession.shared.dataTask(with: url!) { (data, response, err) in
+                    
+                    guard let data = data else {
+                        return
+                    }
+        }
         
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
